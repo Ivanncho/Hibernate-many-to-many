@@ -29,38 +29,21 @@ public class AddCoursesForErikDemo {
 			//start transaction
 			session.beginTransaction();
 			
-			//create a course
-			Course theCourse = new Course("How to be a millionaire");
-			Course theCourse1 = new Course("1000 steps to success");
-			Course theCourse2 = new Course("Motivation is the way");
+			//get the student erik form database
+			int theId=3;
+			Student studentErik = session.get(Student.class, theId);
+			System.out.println("\nLoaded the student: " + studentErik);
+			System.out.println("\nErik's courses: " + studentErik.getCourses());
 			
-			
-			//save the course
-			System.out.println("\nSaving the course...");
+			//create more courses
+			Course theCourse = new Course("Rubik's Cube - How to speed Cube");
+			System.out.println("\nAdding Course: " + theCourse);
+			//add student to courses
+			theCourse.addStudent(studentErik);
+			System.out.println("\nAdding student to course...");
+			//save the courses
 			session.save(theCourse);
-			session.save(theCourse1);
-			session.save(theCourse2);
-			System.out.println("Saved courses: " + theCourse + "\n" + theCourse1 + "\n" + theCourse2);
-			
-			//create the student
-			Student student1 = new Student("John","Doe","john.doe@email.com");
-			Student student2 = new Student("Jane","Doe","jane.doe@email.com");
-			Student student3 = new Student("Erik","Donalds","eDonalds@email.com");
-			
-			//add students to the course
-			System.out.println("\nAdding student to courses");
-			theCourse.addStudent(student1);
-			theCourse1.addStudent(student2);
-			theCourse2.addStudent(student3);
-			theCourse.addStudent(student2);
-			theCourse2.addStudent(student1);
-			
-			//save the students
-			System.out.println("\nSaving the students:" + "\n" + student1 + "\n" + student2 + "\n" + student3);
-			session.save(student1);
-			session.save(student2);
-			session.save(student3);
-			
+			System.out.println("\nSaving the course with the student");
 			
 			//commit transaction
 			session.getTransaction().commit();
