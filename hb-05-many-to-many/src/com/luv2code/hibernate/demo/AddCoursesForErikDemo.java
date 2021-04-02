@@ -42,8 +42,8 @@ public class AddCoursesForErikDemo {
 			theCourse.addStudent(studentErik);
 			System.out.println("\nAdding student to course...");
 			//save the courses
-			session.save(theCourse);
 			System.out.println("\nSaving the course with the student");
+			session.save(theCourse);
 			
 			//commit transaction
 			session.getTransaction().commit();
