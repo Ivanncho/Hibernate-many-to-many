@@ -79,11 +79,27 @@ public class Course {
 		this.reviews = reviews;
 	}
 	
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
 	public void addReview(Review theReview) {
 		if(reviews==null) {
 			reviews=new ArrayList<>();
 		}
 		reviews.add(theReview);
+	}
+	
+	//add convenience method
+	public void addStudent(Student student) {
+		if(students == null) {
+			students = new ArrayList<>();
+		}
+		students.add(student);
 	}
 
 	@Override
