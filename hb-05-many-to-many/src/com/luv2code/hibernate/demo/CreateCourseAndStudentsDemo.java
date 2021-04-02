@@ -46,6 +46,7 @@ public class CreateCourseAndStudentsDemo {
 			Student student1 = new Student("John","Doe","john.doe@email.com");
 			Student student2 = new Student("Jane","Doe","jane.doe@email.com");
 			Student student3 = new Student("Erik","Donalds","eDonalds@email.com");
+			
 			//add students to the course
 			System.out.println("\nAdding student to courses");
 			theCourse.addStudent(student1);
@@ -53,6 +54,7 @@ public class CreateCourseAndStudentsDemo {
 			theCourse2.addStudent(student3);
 			theCourse.addStudent(student2);
 			theCourse2.addStudent(student1);
+			
 			//save the students
 			System.out.println("\nSaving the students:" + "\n" + student1 + "\n" + student2 + "\n" + student3);
 			session.save(student1);
