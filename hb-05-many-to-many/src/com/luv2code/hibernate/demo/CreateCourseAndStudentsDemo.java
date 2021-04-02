@@ -8,6 +8,7 @@ import com.luv2code.hibernate.demo.entity.Course;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
 import com.luv2code.hibernate.demo.entity.Review;
+import com.luv2code.hibernate.demo.entity.Student;
 
 public class CreateCourseAndStudentsDemo {
 
@@ -19,6 +20,7 @@ public class CreateCourseAndStudentsDemo {
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
 								.addAnnotatedClass(Review.class)
+								.addAnnotatedClass(Student.class)
 								.buildSessionFactory();
 		//create a session
 		Session session = factory.getCurrentSession();
@@ -30,17 +32,10 @@ public class CreateCourseAndStudentsDemo {
 			//create a course
 			Course theCourse = new Course("Spring Boot for beginners");
 			
-			//add some reviews
-			theCourse.addReview(new Review("Great course... loved it"));
-			theCourse.addReview(new Review("Cool tips!!!"));
-			theCourse.addReview(new Review("Why i couldn't achieve that?"));
-			theCourse.addReview(new Review("I had success with the advice"));
-			
 			
 			//save the course
-			System.out.println("Saving the course...\n" + theCourse);
-			System.out.println("Saving the reviews...\n" + theCourse.getReviews());
 			session.save(theCourse);
+			
 			//commit transaction
 			session.getTransaction().commit();
 			System.out.println("Done!");
