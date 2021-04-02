@@ -40,7 +40,7 @@ public class CreateCourseAndStudentsDemo {
 			session.save(theCourse);
 			session.save(theCourse1);
 			session.save(theCourse2);
-			System.out.println("Saved course: " + theCourse);
+			System.out.println("Saved courses: " + theCourse + "\n" + theCourse1 + "\n" + theCourse2);
 			
 			//create the student
 			Student student1 = new Student("John","Doe","john.doe@email.com");
